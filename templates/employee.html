@@ -1,0 +1,64 @@
+<!-- Main Template with template literal -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>My Dream Team</title>
+</head>
+<!--Stylecheet CSS-->
+<style>
+    #top, #engineer, #manager, #intern {
+    color: #fff;
+    background: linear-gradient(125deg, #3b54d4,#30cfcf, #89f0a3);
+    box-shadow: 0 0 40px #00000060;
+    border-radius: 40px;
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    font-family: Verdana,Tahoma, sans-serif;
+}
+
+#form {
+    margin-bottom: 20px;
+    border-radius: 40px;
+    background: #f1f1f199;
+    position: relative;
+    font-size: 20px;
+    width: 100%;
+    font-family: Verdana,Tahoma, sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 600;
+}
+</style>
+<body>
+    <div id="top" class="container-fluid">
+        <div class="row" style=" height: 130px;">
+            <h1 class="mx-auto my-auto">My Dream Team</h1>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row justify-content-center">
+
+                    <!-- Team HTML will be placed here using template literals -->
+                    ${teamHTML}
+
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+
+        </div>
+
+    </div>
+</body>
+</html>
+    
