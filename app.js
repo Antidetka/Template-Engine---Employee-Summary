@@ -1,26 +1,22 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+// ===== Node Packages =====
 const inquirer = require("inquirer");
-const path = require("path");
 const fs = require("fs");
-​
-//const OUTPUT_DIR = path.resolve(__dirname, "output")
-c//onst outputPath = path.join(OUTPUT_DIR, "team.html");
-​
-//const render = require("./lib/htmlRenderer");
-​
-​
-async function start() {
-    console.log("Let's make your Dream team!")
 
-    //Set Variable to hold HTML
+const Manager = require("./lib/Manager");
+const Intern = require("./lib/Intern");
+const Engineer = require("./lib/Engineer");
+
+// ===== START FUNCTION ===== 
+async function start(){
+    console.log("Let's make your Dream Team!");
+
+    // Set Variable to hold HTML
     let teamHTML = "";
 
-    //Variable to hold number of team members
+    // Variable to hold number of team members
     let teamSize;
 
-    //First Q to ask to set up loop
+    
     await inquirer.prompt(
         {
             type: "number",
@@ -29,28 +25,27 @@ async function start() {
         }
     )
     .then((data) => {
+
         // Number of team members placed in teamSize for scope purposes.
         // 1 is added start from 1 rather than 0 for user understanding.
         teamSize = data.noOfTeamMem + 1;
-
     });
-
-    //If Team Size is 0, will and program
-    if (teamSize === 0) {
-        console.log("There is no one in your team...")
+    
+    // If Team Size is 0, will end program
+    if (teamSize === 0){
+        console.log("I guess there is no one on your team...");
         return;
     }
-
-    //Loop begins to ask questions depending on the size
+    
+    // Loop begins to ask questions depending on the size of the team
     for(i = 1; i < teamSize; i++){
 
-        //Global variables set
         let name;
         let id;
         let title;
         let email;
 
-        //Prompts user to answer the basic questions of the employee
+        // Prompts user to answer the basic questions of the employee
         await inquirer.prompt([ 
             {
                 type: "input",
@@ -75,6 +70,7 @@ async function start() {
             }
         ])
         .then((data) => {
+
             // Takes data from user and places value in global variables
             name = data.name;
             id = data.id;
@@ -140,14 +136,14 @@ async function start() {
                 });
                 break;
 
-        } // End of Switch Case
+        } 
 
-    } // End of For loop
+    } 
 
-    // Reads employee.html and places html in a variable
-    const mainHTML = fs.readFileSync("templates/employee.html");
+    // Reads main.html and places html in a variable
+    const mainHTML = fs.readFileSync("templates/main.html");
     
-    // Use eval to impement html from employee
+    // Use eval to implement template literals in main.html and places teamHTML inside main template
     teamHTML = eval('`'+ mainHTML +'`');
 
     // write file to new team.html file
@@ -161,7 +157,6 @@ async function start() {
       
       });
 
-    // console.log(teamHTML);
 }
 
 
